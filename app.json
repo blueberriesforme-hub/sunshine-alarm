@@ -1,23 +1,28 @@
 {
   "expo": {
-    "name": "sunshine-alarm-temp",
-    "slug": "sunshine-alarm-temp",
+    "name": "Sunshine Alarm",
+    "slug": "sunshine-alarm",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.blueberriesforme.sunshinealarm",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Used to take your sun selfie to dismiss the alarm.",
+        "NSMicrophoneUsageDescription": "Required by the camera.",
+        "UIBackgroundModes": ["audio", "fetch"]
+      }
     },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
-      },
-      "predictiveBackGestureEnabled": false
-    },
+    "plugins": [
+      ["expo-notifications", {
+        "sounds": ["./assets/alarm.wav"]
+      }],
+      ["expo-camera", {
+        "cameraPermission": "Allow Sunshine Alarm to use your camera for the sun selfie check."
+      }]
+    ],
     "web": {
       "favicon": "./assets/favicon.png"
     }
